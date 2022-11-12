@@ -5,13 +5,11 @@ Used to customise popup with related fields
 To use, paste into popup data expression
 */
 
-
 var relatedrecords = OrderBy(FeatureSetByRelationshipName($feature,"Submittals"), "Date_Submitted DESC");
 var cnt = Count(relatedrecords);
 
 var relatedinfo = "";
 var relatedagency = "";
-
 
 // Sort related features by oldest to newest
 var relatedDataSorted = OrderBy(relatedrecords, 'Date_Submitted DESC')
@@ -22,7 +20,6 @@ for (var f in relatedDataSorted){
     
     popupString += "Reviewing Agency: " + DefaultValue(f.Agency, '') + TextFormatting.NewLine +
 
-    
         "Review Type: " + DefaultValue(f.Review_Type, '') + TextFormatting.NewLine +
         "Date Submitted: " + Text(DefaultValue(f.Date_Submitted, ''), 'MM/DD/YY') + TextFormatting.NewLine +
         "Status: " + DefaultValue(f.Status, '') + TextFormatting.NewLine +
